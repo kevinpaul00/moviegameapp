@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>--%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 
 <!DOCTYPE html>
 <html>
@@ -57,49 +59,45 @@
         </style>
     </head>
 
-    <body>
+<body>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <nav class="navbar navbar-default navbar-expand-md bg-dark navbar-dark fixed-top">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
+    <nav class="navbar navbar-default navbar-expand-md bg-dark navbar-dark fixed-top">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
 
-                <li>
-                    <a class="nav-link" href="/dataStore">Data Store</a>
-                </li>
-            </ul>
-        </nav>
+            <li>
+                <a class="nav-link" href="/dataStore">Data Store</a>
+            </li>
+        </ul>
+    </nav>
+    <br/><br/><br/>
+    <div align = "center">
+        <h1> ${isSuccessful} </h1>
+    </div>
 
-        <div align="center">
-            <h2>Movies and Game Info</h2>
-        </div>
-        <br/>
-        <div align="center" class="container">
-            <div class = "container">
-                <div class = "container">
-                    <div>
-                        Search for a game or movie
-                    </div>
-
-                    <div>
-                        <h3>Search</h3>
-                        <form action = "search">
-                            <input type = "text" id="searchText" name="searchText"><br/><br/>
-                            <input type = "submit" value = "search"><br>
-                        </form>
-                    </div>
-
-                    <div>
-                        <h3>Search and Store</h3>
-                        <form action = "searchDB">
-                            <input type = "text" id="searchTextDB" name="searchText"><br/><br/>
-                            <input type = "submit" value = "Search"><br>
-                        </form>
-                    </div>
+    <div class = "Wrapper">
+        <div class = "container">
+            <c:forEach items="${results}" var="result">
+                <div class = "task">
+                    <h5>${result.getSq()}</h5>
+                    <h5>${result.getTitle()}</h5>
+                    <a href="${result.getUrl()}">
+                        <button type="button" class="btn btn-light">Visit!</button>
+                    </a>
                 </div>
-            </div>
+            </c:forEach>
         </div>
+    </div>
+
+<%--    <c:forEach items="${results}" var="result">--%>
+<%--        <div align="center">--%>
+<%--            <h5>${result.getTitle()}</h5>--%>
+<%--            <p>${result.getUrl()}</p>--%>
+<%--        </div>--%>
+<%--    </c:forEach>--%>
+
     </body>
 </html>

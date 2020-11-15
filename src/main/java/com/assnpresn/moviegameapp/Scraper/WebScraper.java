@@ -6,19 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class WebScraper {
-    private static final  String searchUrl= "https://sfbay.craigslist.org/d/for-sale/search/sss?query=iphone%208&sort=rel";
+    //private static final  String searchUrl= "https://sfbay.craigslist.org/d/for-sale/search/sss?query=iphone%208&sort=rel";
 
     public static List<Item> search(String searchQuery){
 
         String baseUrl = "https://in.ign.com/se/?model=article%2Cvideo&order_by=-date&q=";
-        //String searchQuery = "Spider Man";
 
         WebClient client = new WebClient();
         client.getOptions().setCssEnabled(false);
@@ -43,11 +41,6 @@ public class WebScraper {
                     item.setUrl( itemAnchor.getHrefAttribute());
                     resultItems.add(item);
                     System.out.println(item.getTitle());
-//                    ObjectMapper mapper = new ObjectMapper();
-//                    String jsonString = mapper.writeValueAsString(item) ;
-//
-//                    System.out.println(jsonString);
-
                 }
             }
             return resultItems;

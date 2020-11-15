@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 
 <!DOCTYPE html>
 <html>
@@ -72,33 +73,29 @@
             </ul>
         </nav>
 
-        <div align="center">
-            <h2>Movies and Game Info</h2>
-        </div>
-        <br/>
-        <div align="center" class="container">
+        <br/><br/><br/>
+        <h2 align="center">DATA STORE</h2>
+
+        <div class = "Wrapper">
             <div class = "container">
-                <div class = "container">
-                    <div>
-                        Search for a game or movie
-                    </div>
+                <form action = "deleteDB">
+                    <input type = "text" id="searchTextDB" name="searchText"><br/><br/>
+                    <input type = "submit" value = "Delete"><br>
+                </form>
+            </div>
+        </div>
 
-                    <div>
-                        <h3>Search</h3>
-                        <form action = "search">
-                            <input type = "text" id="searchText" name="searchText"><br/><br/>
-                            <input type = "submit" value = "search"><br>
-                        </form>
+        <div class = "Wrapper">
+            <div class = "container">
+                <c:forEach items="${results}" var="result">
+                    <div class = "task">
+                        <h5>${result.getSq()}</h5>
+                        <h5>${result.getTitle()}</h5>
+                        <a href="${result.getUrl()}">
+                            <button type="button" class="btn btn-light">Visit!</button>
+                        </a>
                     </div>
-
-                    <div>
-                        <h3>Search and Store</h3>
-                        <form action = "searchDB">
-                            <input type = "text" id="searchTextDB" name="searchText"><br/><br/>
-                            <input type = "submit" value = "Search"><br>
-                        </form>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </body>
