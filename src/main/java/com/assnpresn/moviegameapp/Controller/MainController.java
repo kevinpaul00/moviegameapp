@@ -41,7 +41,7 @@ public class MainController {
         ModelAndView mav = new ModelAndView("addedDB.jsp");
         String url="jdbc:mysql://127.0.0.1:3306/movgam";
         String uname="root";
-        String password="root";
+        String password="swqmfrf0vm";
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         List<Item> results = WebScraper.search(s.getSearchText());
@@ -53,7 +53,6 @@ public class MainController {
             mav.addObject("isSuccessful", "Search Results");
             for(Item result : results){
                 String query = "INSERT INTO IGN(SEARCHQUERY, TITLE, URL) VALUES ('" + s.searchText + "','" + result.title.replace("'"," ") + "','" + result.url + "')";
-                //System.out.println(query);
                 stmt.executeUpdate(query);
             }
         }
@@ -72,7 +71,7 @@ public class MainController {
         ModelAndView mav = new ModelAndView("dataPage.jsp");
         String url="jdbc:mysql://127.0.0.1:3306/movgam";
         String uname="root";
-        String password="root";
+        String password="swqmfrf0vm";
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         Connection con = DriverManager.getConnection(url,uname,password);
@@ -95,7 +94,7 @@ public class MainController {
 
         String url="jdbc:mysql://127.0.0.1:3306/movgam";
         String uname="root";
-        String password="root";
+        String password="swqmfrf0vm";
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         Connection con = DriverManager.getConnection(url,uname,password);

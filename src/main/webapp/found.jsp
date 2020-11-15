@@ -82,7 +82,7 @@
         <div class = "Wrapper">
             <div class = "container">
                 <c:forEach items="${results}" var="result">
-                    <div align="center" class = "task">
+                    <div class = "task">
                         <h5>${result.getTitle()}</h5>
                         <a href="${result.getUrl()}">
                             <button type="button" class="btn btn-light">Visit!</button>
