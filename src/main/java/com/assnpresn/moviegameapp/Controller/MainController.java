@@ -41,7 +41,7 @@ public class MainController {
         ModelAndView mav = new ModelAndView("addedDB.jsp");
         String url="jdbc:mysql://127.0.0.1:3306/movgam";
         String uname="root";
-        String password="swqmfrf0vm";
+        String password="root";
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         List<Item> results = WebScraper.search(s.getSearchText());
@@ -71,7 +71,7 @@ public class MainController {
         ModelAndView mav = new ModelAndView("dataPage.jsp");
         String url="jdbc:mysql://127.0.0.1:3306/movgam";
         String uname="root";
-        String password="swqmfrf0vm";
+        String password="root";
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         Connection con = DriverManager.getConnection(url,uname,password);
@@ -94,7 +94,7 @@ public class MainController {
 
         String url="jdbc:mysql://127.0.0.1:3306/movgam";
         String uname="root";
-        String password="swqmfrf0vm";
+        String password="root";
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         Connection con = DriverManager.getConnection(url,uname,password);
