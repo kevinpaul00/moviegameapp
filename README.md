@@ -1,4 +1,4 @@
-# Game Scraper
+# Game and Movie Content Scraper
 This is a Spring Boot app which can scrape content from gaming websites and store in a database
 
 Set your database connection
